@@ -1,0 +1,100 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tanyeri}[2021/09/04 v0.01 LaTeX package for my own purpose]
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{graphicx}
+\RequirePackage{geometry}
+\RequirePackage[pdftex,pdfpagelabels,bookmarks,hyperindex,hyperfigures]{hyperref}
+\RequirePackage{indentfirst}
+\RequirePackage{subcaption}
+\RequirePackage{stackengine}
+\RequirePackage{mathrsfs}
+\RequirePackage{cancel}
+\RequirePackage{mathtools}
+\RequirePackage{listings}
+\RequirePackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\hypersetup{
+    colorlinks = True,
+	urlcolor=[rgb]{0 ,0 , 0.93}
+}
+
+\ProcessOptions\relax
+
+\geometry{
+ a4paper,
+ total={170mm,247mm},
+ left=20mm,
+ top=20mm,
+ }
+\setlength{\parskip}{0.75em}
+ \setlength{\parindent}{2em}
+
+\newcommand{\listlinks}{
+	\setlength{\itemsep}{0em}
+	\setlength{\parsep}{0.3em}
+	\setlength{\topsep}{0em}
+	\setlength{\partopsep}{0em}
+	}
+\newcommand*{\RN}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+\newcommand{\eqnexplain}[2][5]{\hspace{#1mm}\text{where}\hspace{#1mm} #2}
+\newcommand{\figref}[1]{figure \ref{#1}}
+\newcommand{\Figref}[1]{Figure \ref{#1}}
+\newcommand{\diff}[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\partdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\integral}[1][]{\def\cmdDefaultA{#1}\integralNext}
+\newcommand{\integralNext}[3][]{\int\limits_{\cmdDefaultA}^{#1}\mathrm{d}#2\ #3\ }
+\newcommand{\diver}[1]{\nabla\cdot\Vec{#1}}
+\newcommand{\curl}[1]{\nabla\times\Vec{#1}}
+\newcommand{\separator}{ $\hspace{0.5em}\bullet\hspace{0.5em}$ }
+\newcommand{\bra}[1]{\left\langle #1 \right\rvert}
+\newcommand{\ket}[1]{\left\lvert #1 \right\rangle}
+\newcommand{\braket}[2]{\left. \left\langle #1 \right\lvert #2 \right\rangle}
+\newcommand{\angstrom}{\mbox{\normalfont\AA}}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\imagu}{\mathrm i}
+
+
+\usepackage{tabularx}
+\usepackage{array}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{B}[1]{>{\centering\arraybackslash}b{#1}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{H}[1]{>{\hsize=#1\hsize\arraybackslash}X}
+\renewcommand{\tabularxcolumn}[1]{M{#1}}
+\usepackage{lipsum} 
+
+
+\newcommand{\notebox}[2][5]{\begin{center}\fbox{\parbox[h][#1em][c]{0.85\textwidth}{\textbf{Note That:} #2}} \end{center}}
+\newcommand{\noticebox}[2][5]{\begin{center}\fbox{\parbox[h][#1em][c]{0.85\textwidth}{\textbf{Notice That:} #2}} \end{center}}
+\endinput
+
+

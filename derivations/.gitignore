@@ -1,0 +1,8 @@
+#outputs of tex
+*.out
+*.log
+*.bbl
+*.aux
+*.gz
+*.toc
+*.blg

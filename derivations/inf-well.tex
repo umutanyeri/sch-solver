@@ -1,0 +1,50 @@
+\documentclass[12pt]{article}
+\usepackage{tanyeri}
+
+\begin{document}
+
+Our initial wave fucntion is\begin{equation}
+\psi(x,0) = C \exp\left(-\frac{(x-x_0)^2}{4s^2} + \imagu k_0 x\right)
+\end{equation}
+where $C$ is some normalization constant, and $k_0$ and $x_0$ are real numbers.
+
+The eigenvalues in the interior region of infinite well are\begin{align}
+\varphi_n(x , t) &= A_n \cos(k_nx)e^{-\imagu \frac{k_n^2}{2} t} + B_n\sin(k_nx) e^{-\imagu \frac{k_n^2}{2} t} \eqnexplain{k_n = n\frac{\pi}{2L},\quad n \in \mathbb{Z}} \\
+& = \left[A_n \frac{e^{\imagu k_nx}- e^{-\imagu k_n x} }{2\imagu}+ B_n \frac{e^{\imagu k_nx}- e^{-\imagu k_n x} }{2\imagu} \right]e^{-\imagu \frac{k_n^2}{2} t} \\ 
+& = \left[A_n \frac{e^{\imagu k_nx}+e^{-\imagu k_n x} }{2}+ B_n \frac{e^{\imagu k_nx}- e^{-\imagu k_n x} }{2\imagu} \right]e^{-\imagu \frac{k_n^2}{2} t} \\ 
+& = \left[\underbrace{\left(\frac{A_n}{2}+\frac{B_n}{2\imagu}\right)}_{\tilde A_n} \underbrace{e^{\imagu k_nx}}_{\varphi_n^{(1)}(x)} + \underbrace{\left(\frac{A_n}{2}-\frac{B_n}{2\imagu}\right)}_{\tilde B_n} \underbrace{e^{-\imagu k_nx}}_{\varphi_n^{(2)}(x)} \right]e^{-\imagu \frac{k_n^2}{2} t} \\ 
+& = \left[\tilde A_n \varphi_n^{(1)}(x) + \tilde B_n \varphi_n^{(2)}(x)\right] \exp\left(- \imagu \frac{k_n^2t}{2}\right)
+\end{align}
+
+By applying boundary conditions, we can conclude that whenever $n$ is even, we must take into account only the sine part of the solution. On the other hand, if it is odd, we should take cosine part.
+
+\begin{align}
+\sin(k_nL) = \sin(-k_nL) = 0 \implies k_n := n\frac{\pi}{2L} = \frac{m\pi}{L}\eqnexplain{n,m\in \mathbb Z} \\ 
+\cos(k_nL) = \cos(-k_nL) = 0 \implies k_n := n\frac{\pi}{2L} = (2m+1)\frac{\pi}{2L} \eqnexplain{n,m\in \mathbb Z}
+\end{align}
+
+Therefore, we can obtain our solution with\begin{align}
+\psi(x,t) & = \sum_{n=0}^\infty A_{2n+1} \cos(k_{2n+1}x) e^{-\imagu \frac{k_{2n+1}^2}{2}} + B_{2n} \sin(k_{2n}x) e^{-\imagu \frac{k_{2n}^2}{2}} \\ 
+& = \sum_{n=0}^\infty \left(\tilde A_{2n+1}+\tilde B_{2n+1}\right) \cos(k_{2n+1}x)e^{-\imagu \frac{k_{2n+1}^2}{2}} + \imagu\left(\tilde A_{2n}-\tilde B_{2n}\right) \sin(k_{2n}x)  e^{-\imagu \frac{k_{2n}^2}{2}}
+\end{align}
+
+I tired to find projection of our initial wave function to eigenstates by using Gaussian integration \begin{align*}
+\tilde A_n & = \braket{\varphi_n^{(1)}}{\psi} = \integral[-L][L]{x}{{\varphi_n^{(1)}}^*\psi(x,0)} = C \integral[-L][L]{x}{\exp\left(-\frac{(x-x_0)^2}{4s^2} + \imagu (k_0-k_n) x\right)} \\
+& = C\integral[-L-x_0][L-x_0]{x'}{\exp\left(-\frac{x'^2}{4s^2} + \imagu (k_0-k_n) (x'+x_0)\right)} \\
+& = Ce^{\imagu (k_0-k_n)x_0} \integral[-L-x_0-\imagu 2s^2(k_0-k_n)][L-x_0-\imagu 2s^2(k_0-k_n)]{x''}{\exp\left(-\frac{(x''+\imagu 2s^2(k_0-k_n))^2}{4s^2} + \imagu (k_0-k_n) (x''+\imagu 2s^2(k_0-k_n))\right)} \\
+& =Ce^{\imagu (k_0-k_n)x_0} \integral[-L-x_0-\imagu 2s^2(k_0-k_n)][L-x_0-\imagu 2s^2(k_0-k_n)]{x''}{\exp\left(-\frac{{x''}^2+\imagu 4s^2(k_0-k_n)x'' - 4s^4(k_0-k_n)^2}{4s^2}\right. \\ & \hspace*{11cm}+\imagu (k_0-k_n) (x''+\imagu 2s^2(k_0-k_n))\bigg)} \\
+& =Ce^{\imagu (k_0-k_n)x_0} \integral[-L-x_0+\imagu 2s^2(k_0-k_n)][L-x_0+\imagu 2s^2(k_0-k_n)]{x''}{\exp\left(-\frac{{x''}^2}{4s^2}+ s^2(k_0-k_n)^2-2s^2(k_0-k_n)^2\right)}  \\
+& = Ce^{- s^2 (k_n-k_0)**2 - \imagu (k_n-k_0)x_0} \integral[-L-x_0+\imagu 2s^2(k_0-k_n)][L-x_0+\imagu 2s^2(k_0-k_n)]{x''}{\exp\left(-\frac{{x''}^2}{4s^2}\right)} \\
+& \approx C e^{- s^2 (k_n-k_0)**2 - \imagu (k_n-k_0)x_0} \integral[-\infty][\infty]{x''}{\exp\left(-\frac{{x''}^2}{4s^2}\right)} = C \sqrt{{4s^2\pi}}e^{- s^2 (k_n-k_0)**2 - \imagu (k_n-k_0)x_0}
+\end{align*}
+
+\begin{gather}
+\implies \tilde A_n = C 2s\sqrt{\pi} e^{- s^2 (k_n-k_0)**2 - \imagu (k_n-k_0)x_0} \\ 
+\tilde B_n = A_{(-n)} = C 2s\sqrt{\pi} e^{- s^2 (k_n+k_0)**2 + \imagu (k_n+k_0)x_0}
+\end{gather}
+
+
+\bibliographystyle{ieeetr}
+\bibliography{ref.bib}
+
+\end{document}
