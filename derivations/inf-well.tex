@@ -9,7 +9,7 @@ V(x) = \left\{\begin{matrix}
 \end{matrix}\right.
 \end{equation}
 
-Our initial wave fucntion is\begin{equation}
+Our initial wave function is\begin{equation}
 \psi(x,0) = C \exp\left(-\frac{(x-x_0)^2}{4s^2} + \imagu k_0 x\right)
 \end{equation}
 where $C$ is some normalization constant, and $k_0$ and $x_0$ are real numbers.
@@ -34,7 +34,7 @@ Therefore, we can obtain our solution with\begin{align}
 & = \sum_{n=0}^\infty \left(\tilde A_{2n+1}+\tilde B_{2n+1}\right) \cos(k_{2n+1}x)e^{-\imagu \frac{k_{2n+1}^2}{2}} + \imagu\left(\tilde A_{2n}-\tilde B_{2n}\right) \sin(k_{2n}x)  e^{-\imagu \frac{k_{2n}^2}{2}}
 \end{align}
 
-I tired to find projection of our initial wave function to eigenstates by using Gaussian integration \begin{align*}
+I tried to find projection of our initial wave function to eigenstates by using Gaussian integration \begin{align*}
 \tilde A_n & = \braket{\varphi_n^{(1)}}{\psi} = \integral[-L][L]{x}{{\varphi_n^{(1)}}^*\psi(x,0)} = C \integral[-L][L]{x}{\exp\left(-\frac{(x-x_0)^2}{4s^2} + \imagu (k_0-k_n) x\right)} \\
 & = C\integral[-L-x_0][L-x_0]{x'}{\exp\left(-\frac{x'^2}{4s^2} + \imagu (k_0-k_n) (x'+x_0)\right)} \\
 & = Ce^{\imagu (k_0-k_n)x_0} \integral[-L-x_0-\imagu 2s^2(k_0-k_n)][L-x_0-\imagu 2s^2(k_0-k_n)]{x''}{\exp\left(-\frac{(x''+\imagu 2s^2(k_0-k_n))^2}{4s^2} + \imagu (k_0-k_n) (x''+\imagu 2s^2(k_0-k_n))\right)} \\
