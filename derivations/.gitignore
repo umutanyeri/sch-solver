@@ -6,3 +6,9 @@
 *.gz
 *.toc
 *.blg
+
+# the TeX output, this can change but the change should be tracked on the source file
+inf-well.pdf
+
+# vim swap file(s)
+.*.swp
