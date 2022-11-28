@@ -1,0 +1,9 @@
+top: potential + initial wf + method's properties (dt, dx, LF/Y4 etc.)
+t = Dt : analytical (0) + SSF (1), overlap of (0) and (1) + ??
+t = 2Dt: ditto
+.
+.
+.
+t = NDt: ''
+
+I'll put these into another script --ato (25 Nov '22)
